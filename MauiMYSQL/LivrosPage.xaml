@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMYSQL.LivrosPage"
+             Title="Biblioteca">
+    <VerticalStackLayout>
+        <Label 
+            Text="BIBLIOTECA"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label Text="Título do Livro" />
+        <Entry x:Name="txtTituloLivro" Keyboard="Text" />
+
+        <Button Text="Adicionar Livro" Clicked="btnAdicionar" />
+
+        <ListView x:Name="lstLivros" 
+                  HasUnevenRows="True"
+                  VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding titulo}" 
+                                   FontSize="Medium" 
+                                   HorizontalOptions="Start" /> 
+                        </StackLayout>        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Label Text="" x:Name="lblStatus" VerticalOptions="End" HorizontalTextAlignment="Center" />
+    </VerticalStackLayout>
+</ContentPage>
